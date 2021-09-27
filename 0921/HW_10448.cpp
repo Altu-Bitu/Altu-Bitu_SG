@@ -7,7 +7,15 @@
 #include <vector>
 
 using namespace std;
+vector<int> v(50,0);
 
+void put_num(int n){
+    for (int j = 1;; j++) {
+        int k = j * (j + 1) / 2;
+        if (k >= n) break;
+        v[j-1]=k;
+    }
+}
 
 //3개의 삼각수로 표현이 가능한지 판별하는 함수
 int triangular(int n) {
@@ -15,19 +23,12 @@ int triangular(int n) {
     //이렇게 하면 삼중반복문에서는 v.size()함수를 3번 돌려야 하니까
     //연산횟수 줄이기 위해서 변수에 v.size() 저장
 
-    vector<int> v(50,0);
-    int j;
+     //n보다 작거나 같은 삼각수들을 모두 벡터에 담는다
+     put_num(n);
 
-    for (j = 1;; j++) {
-        int k = j * (j + 1) / 2;
-        if (k >= n) break;
-        v[j-1]=k;
-    } //n보다 작거나 같은 삼각수들을 모두 벡터에 담는다
-
-
-    for (int i = 0; i < j-1; i++) {
-        for (int r = 0; r < j-1; r++) {
-            for (int t = 0; t < j-1; t++) {
+    for (int i = 0; v[i]!=0; i++) {
+        for (int r = 0; v[r]!=0; r++) {
+            for (int t = 0; v[t]!=0; t++) {
                 if (v[i] + v[r] + v[t] == n) {
                     return 1;
                 }
