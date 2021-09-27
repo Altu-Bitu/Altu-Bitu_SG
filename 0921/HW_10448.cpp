@@ -15,7 +15,7 @@ int triangular(int n) {
     //이렇게 하면 삼중반복문에서는 v.size()함수를 3번 돌려야 하니까
     //연산횟수 줄이기 위해서 변수에 v.size() 저장
 
-    vector<int> v(50);
+    vector<int> v(50,0);
     int j;
 
     for (j = 1;; j++) {
