@@ -2,7 +2,6 @@
 // Created by 류수한 on 2021-09-26.
 //
 
-//배애애앰...시간초과....
 
 #include <iostream>
 #include <vector>
