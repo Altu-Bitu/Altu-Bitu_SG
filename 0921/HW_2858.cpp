@@ -17,8 +17,7 @@ int main() {
             L = i;
             W = (R + B) / i;
             break;
-        } else
-            continue;
+        } 
     }
 
     if (L < W) { //큰 것을 L로 넣기 위한 부분
