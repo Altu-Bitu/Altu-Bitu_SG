@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 vector<int> v;
@@ -9,15 +10,13 @@ const int SIZE = 4000;
 
 //산술평균
 int avg(vector<int> v) {
-    int result = 0, s = v.size();
+    double result = 0, s = v.size();
 
     for (int i = 0; i < s; i++) {
         result += v[i];
     }
-    if (result % s > s / 2) //소수점 첫째자리 수에서 반올림하기 위한 코드
-        return (result / s) + 1;
-    else
-        return result / s;
+
+    return round(result/s);
 }
 
 //중앙값
@@ -52,15 +51,8 @@ int frq(vector<int> v) {
 
 //범위(최댓값과 최솟값의 차이)
 int range(vector<int> v) {
-    int max = v[0], min = v[0];
-    int s = v.size();
-
-    for (int j = 1; j < s; j++) {
-        if (v[j] > max)
-            max = v[j];
-        if (v[j] < min)
-            min = v[j];
-    }
+    int max=*max_element(v.begin(),v.end());
+    int min=*min_element(v.begin(),v.end());
 
     return max - min;
 }
