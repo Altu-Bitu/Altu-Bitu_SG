@@ -7,6 +7,7 @@ using namespace std;
 
 int main() {
     int R, B, L, W;
+
     //입력
     cin >> R >> B;
 

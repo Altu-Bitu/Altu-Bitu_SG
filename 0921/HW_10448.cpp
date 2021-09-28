@@ -10,11 +10,13 @@ using namespace std;
 vector<int> v(50,0);
 
 void put_num(int n){
+
     for (int j = 1;; j++) {
         int k = j * (j + 1) / 2;
         if (k >= n) break;
         v[j-1]=k;
     }
+
 }
 
 //3개의 삼각수로 표현이 가능한지 판별하는 함수
