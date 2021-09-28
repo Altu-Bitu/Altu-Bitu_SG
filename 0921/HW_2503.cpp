@@ -2,7 +2,7 @@
 #include <vector>
 
 using namespace std;
-typedef pair<int, int> ci;
+typedef pair<int, int> ci; //pair<int,int>는 너무 기니까 이제부터 이 자료형을 ci라고 부를거야
 
 //baseball이라는 구조체를 만들어서 민혁이가 말한 숫자 + 그 수의 스트라이크, 볼 여부 담기!
 //그리고 이 구조체를 요소로 하는 벡터를 만들어서 순회할 거야
