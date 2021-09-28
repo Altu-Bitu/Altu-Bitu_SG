@@ -81,6 +81,7 @@ int game(int n, vector<baseball> &question) {//매개변수로 질문 횟수, �
  */
 
 int main() {
+
     int n; //질문의 횟수
 
     //입력

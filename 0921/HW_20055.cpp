@@ -80,6 +80,7 @@ int main() {
     int start = 0;    //올리는 위치
     int end = n - 1;  //내리는 위치
     int step = 0;     //단계 수
+
     while (true) {
         start = minusPosition(n, start); //한 칸 앞으로 가면서 올리는 위치 -1됨
         end = minusPosition(n, end); //그리고 내리는 위치 -1됨
