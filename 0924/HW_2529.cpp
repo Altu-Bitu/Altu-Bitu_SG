@@ -44,8 +44,8 @@ void findValue(int cnt) {
             findValue(cnt + 1); //재귀함수로 그 다음 수 찾기
             if (is_find) //k번째 부등호에 맞는 수까지 다 찾아졌다면
                 return; //함수 나오기
-            check[num[i]] = false;//반복할 때마다 그 전에 쓰였던 수가 또 검사될 수 있게 false로 바꾸기
-            arr[cnt] = 0;
+            check[num[i]] = false;//i가 바뀔 때마다 그 전에 쓰였던 수가 또 검사될 수 있게 false로 바꾸기
+            arr[cnt] = 0; //그리고 이것도 i가 바뀔 때 새로 답을 넣을 수 있게 cnt 0으로 초기화
         }
     }
 }
