@@ -5,8 +5,8 @@ using namespace std;
 
 //부분 행렬 원소 뒤집는 함수
 void reverseMtx(int row, int col, vector<string> &matrix_a) {//행의 개수, 열의 개수, 행렬을 파라미터로
-    for (int i = row; i < row + 3; i++) {//3개씩 원소 바꾸기
-        for (int j = col; j < col + 3; j++) {//3개씩 원소 바꾸기
+    for (int i = row; i < row + 3; i++) {//선택한 행 포함 3줄을 바꿔야함
+        for (int j = col; j < col + 3; j++) {//선택한 열 포함 3줄을 바꿔야 함
             if (matrix_a[i][j] == '1') //1이면
                 matrix_a[i][j] = '0';//0으로
             else
@@ -58,12 +58,10 @@ int main() {
         }
     }
 
-    //만약에 4*3 행렬이라면
-    //
-
     //출력
-    if (!isPossible(n, m, matrix_a, matrix_b))
-        ans = -1; //최종으로 바꾸고도 ans+1이 됐으니까 출력하기 전에는 -1해주기
+    if (!isPossible(n, m, matrix_a, matrix_b)) //false이면
+        ans = -1; //바꿀 수 없는 경우라 그냥 -1 출력
+
     cout << ans;
 
     return 0;
