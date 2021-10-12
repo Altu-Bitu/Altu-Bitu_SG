@@ -5,7 +5,7 @@ using namespace std;
 
 vector<vector<int>> innings; //이닝수와 각 이닝에서의 결과 저장할 2차원 벡터
 vector<int> order(10, 0); //타순
-vector<bool> check(10, false);
+vector<bool> check(10, false); //타자 순서 정해졌는지 아닌지
 int n, ans;
 
 //현재 배치의 점수
@@ -59,20 +59,20 @@ int calcScore() {
 //가능한 배치 모두 구하기
 void array(int cnt) { //cnt: 타자순서
     if (cnt == 4) { //4번 타자는 정해져 있으므로
-        array(cnt + 1);
+        array(cnt + 1); //그 다음 타자 순서 정하기
         return;
     }
     if (cnt == 10) { //9번 타자까지 정해짐 (기저조건)
         int score = calcScore(); //점수 계산
-        ans = max(ans, score);
+        ans = max(ans, score); //최대 점수 계산-max
         return;
     }
     for (int i = 2; i <= 9; i++) {
         if (!check[i]) {
             order[cnt] = i; //cnt번 타자: i번 선수
             check[i] = true; //i번 선수 순서 정해짐
-            array(cnt + 1); //다음 타자
-            check[i] = false;
+            array(cnt + 1); //다음 타자 순서 정하기
+            check[i] = false;//다시 원상태로 돌려놓기
         }
     }
 }
@@ -85,18 +85,18 @@ void array(int cnt) { //cnt: 타자순서
 
 int main() {
     //입력
-    cin >> n;
-    innings.assign(n, vector<int>(10, 0));
+    cin >> n; //이닝 수
+    innings.assign(n, vector<int>(10, 0)); //인덱스 번호로 접근해야하니까 n+1만큼 크기 할당
     for (int i = 0; i < n; i++) {
         for (int j = 1; j < 10; j++) {
-            cin >> innings[i][j];
+            cin >> innings[i][j]; //각 이닝의 결과 입력받기
         }
     }
 
     //연산
     order[4] = 1; //4번 타자는 1번 선수
     check[1] = true; //1번 선수는 순서 정해짐
-    array(1);
+    array(1);//1번타자부터 가능한 배치를 구하기
 
     //출력
     cout << ans << '\n';
